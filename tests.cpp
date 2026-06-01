@@ -153,6 +153,14 @@ TEST(AnyTests, MoveConstructor) {
 	EXPECT_EQ(a.GetType(), ISXAnyType::ValueType::Empty);
 }
 
+TEST(AnyTests, SelfAssignmentOperator) {
+	ISXAnyType::Any a(5);
+
+	a = a;
+
+	EXPECT_EQ(a.Get<int>(), 5);
+}
+
 TEST(AnyTests, AssignmentOperator) {
 	ISXAnyType::Any a(5);
 	ISXAnyType::Any b(10);
